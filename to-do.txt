@@ -1,0 +1,29 @@
+// Hoje precisamos implementar o seguintes casos de uso:
+
+Admin efetuar login no sistema -> JHOSEFER
+
+Admin Cadastrar um cliente -> JHOSEFER
+    -> Ao cadastrar um cliente, ele tem o campo status setado para o valor 0
+
+Cliente Efetuar Login no sistema -> JHOSEFER
+    -> se for o primeiro login com o email do cliente, o sistema pede uma senha para ele
+    -> caso seja o primeiro login do cliente (status == 0), será considerado o email como forma de login e será requisitada uma senha e login para o cliente digitar, que passarão a ser os novos login e senha dele.
+
+Cliente Cadastra Usuário (celular), este fará o login na extensão (terá login e senha próprios) -> JHOSEFER
+
+Cliente Cadastra Menus -> LUCCAS
+
+Cliente Cadastra Itens -> LUCCAS
+    -> Cada Item na Hora do Cadastro já pode ter sua ação cadastrada (acionar outro menu, ou uma resposta fixa)
+
+Usuário Fazer Login na extensão do chrome -> LUCCAS
+    Ao efetuar o login, uma flag no banco de dados impede de ele se logar em outro local, e também é gerada uma hash
+    com os dados da sessão (deve ser checada a cada requisição)
+
+Extensão interpreta as mensagens e envia a resposta dada no banco de dados -> DEUS
+
+---------- ESPAÇO PARA MENSAGENS E OBS ------------
+23:15 - Luccas
+    -> Vou focar no momento no cadastro de menus e itens, já que eles vão precisar ser remodelados para terem o id do cliente em questão
+00:13 - Jhosefer
+    -> Vou focar no Model de clientes.
