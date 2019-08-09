@@ -5,13 +5,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Respostas</h1>
+            <h1>Opções</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Início</a></li>
               <li class="breadcrumb-item">Configurações</li>
-              <li class="breadcrumb-item active">Respostas</li>
+              <li class="breadcrumb-item active">Opções</li>
             </ol>
           </div>
           <div class="col-sm-6">

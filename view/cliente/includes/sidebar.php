@@ -59,7 +59,14 @@
               </li>
             </ul>
           </li>
-        </ul>
+          <li class="nav-item">
+            <a class="nav-link btn-menu" data-pagina="usuario">
+              <i class="nav-icon fa fa-users"></i>
+              <p>
+                Usuários
+              </p>
+            </a>
+          </li>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
