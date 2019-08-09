@@ -181,6 +181,40 @@
                 }
 
             break;
+
+            case 'cad-usuario':
+
+                require('../model/Usuario.php');
+                session_start();
+
+                $u = new Usuario();
+
+                $u->setNome($_POST['usuario']);
+                $u->setLogin($_POST['login']);
+                $u->setSenha($_POST['senha']);
+                $u->setIdCliente($_SESSION['cliente']->getId());
+
+                if($u->create())
+                {
+                    $r = array("resposta" => "1");
+                }
+
+            break;
+
+            case 'list-usuario':
+
+                require('../model/Usuario.php');
+                session_start();
+
+                $u = new Usuario();
+                $u->setIdCliente($_SESSION['cliente']->getId());
+
+                if(!empty($u->list()))
+                {
+                    $r = $u->list();
+                }
+
+            break;
         }
     }
 
