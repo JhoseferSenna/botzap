@@ -59,10 +59,22 @@
                 lista += '<tr>';
                 switch(id)
                 {
-                    case 'menu':
+                    case 'cliente':
 
                         lista += '<td>';
                         lista += item.nome;
+                        lista += '</td>';
+                        lista += '<td>';
+                        lista += item.email;
+                        lista += '</td>';
+                        lista += '<td>';
+                        if(item.status == 0) {
+                            lista += 'Aguardando Confirmação';
+                        }else if(item.status > 0){
+                            lista += 'Ativo';
+                        }else{
+                            lista += item.status;
+                        }
                         lista += '</td>';
                         lista += '<td>';
                         lista += 'Botões de ação';
