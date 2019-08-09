@@ -31,7 +31,6 @@
 
             break;
 
-
             case 'primeiro-login':
 
                 $c = new Cliente();
@@ -105,6 +104,80 @@
                 if(!empty($m->list()))
                 {
                     $r = $m->list();
+                }
+
+            break;
+
+            case 'cad-resposta':
+
+                require('../model/Resposta.php');
+                session_start();
+
+                $res = new Resposta();
+
+                $res->setNome($_POST['resposta']);
+                $res->setIdCliente($_SESSION['cliente']->getId());
+
+                if($res->create())
+                {
+                    $r = array("resposta" => "1");
+                }
+
+            break;
+
+            case 'list-resposta':
+
+                require('../model/Resposta.php');
+                session_start();
+
+                $res = new Resposta();
+                $res->setIdCliente($_SESSION['cliente']->getId());
+
+                if(!empty($res->list()))
+                {
+                    $r = $res->list();
+                }
+
+            break;
+
+            case 'cad-opcao':
+
+                require('../model/Opcao.php');
+                session_start();
+
+                $res = new Opcao();
+
+                $res->setNome($_POST['opcao']);
+                $res->setIdCliente($_SESSION['cliente']->getId());
+                $res->setIdMenu($_POST['idmenu']);
+
+                if($_POST['acao-resposta'] == 'resposta')
+                {
+                    $res->setIdResposta($_POST['resposta']);
+                }
+                else if($_POST['acao-resposta'] == 'menu-destino')
+                {
+                    $res->setMenuResposta($_POST['menu-destino']);
+                }
+
+                if($res->create())
+                {
+                    $r = array("resposta" => "1");
+                }
+
+            break;
+
+            case 'list-opcao':
+
+                require('../model/Opcao.php');
+                session_start();
+
+                $res = new Opcao();
+                $res->setIdCliente($_SESSION['cliente']->getId());
+
+                if(!empty($res->list()))
+                {
+                    $r = $res->list();
                 }
 
             break;
