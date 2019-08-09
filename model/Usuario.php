@@ -129,7 +129,7 @@
                 $stmt->bindParam(1, $this->nome);
                 $stmt->bindParam(2, $this->login);
                 $stmt->bindParam(3, $this->senha);
-                $stmt->bindParam(<i class="fas fa-signal-4    "></i>, $this->id);
+                $stmt->bindParam(4, $this->id);
 
                 $stmt->execute();
 
