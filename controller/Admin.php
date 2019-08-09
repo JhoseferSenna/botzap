@@ -78,34 +78,33 @@
 
             break;
 
-            case 'cad-menu':
+            case 'cad-cliente':
 
-                require('../model/Menu.php');
+                require('../model/Cliente.php');
                 session_start();
 
-                $m = new Menu();
+                $c = new Cliente();
 
-                $m->setNome($_POST['menu']);
-                $m->setIdCliente($_SESSION['admin']->getId());
+                $c->setNome($_POST['nome']);
+                $c->setEmail($_POST['email']);
 
-                if($m->create())
+                if($c->create())
                 {
                     $r = array("resposta" => "1");
                 }
 
             break;
 
-            case 'list-menu':
+            case 'list-cliente':
 
-                require('../model/Menu.php');
+                require('../model/Cliente.php');
                 session_start();
 
-                $m = new Menu();
-                $m->setIdCliente($_SESSION['cliente']->getId());
+                $c = new Cliente();
 
-                if(!empty($m->list()))
+                if(!empty($c->lista()))
                 {
-                    $r = $m->list();
+                    $r = $c->lista();
                 }
 
             break;
