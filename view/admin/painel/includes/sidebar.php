@@ -40,21 +40,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a class="nav-link btn-menu" data-pagina="menu">
+                <a class="nav-link btn-menu" data-pagina="cliente">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Menus</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Opções</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Respostas</p>
+                  <p>Clientes</p>
                 </a>
               </li>
             </ul>

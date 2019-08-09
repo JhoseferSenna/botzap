@@ -5,13 +5,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Menus</h1>
+            <h1>Clientes</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Início</a></li>
               <li class="breadcrumb-item">Configurações</li>
-              <li class="breadcrumb-item active">Menus</li>
+              <li class="breadcrumb-item active">Clientes</li>
             </ol>
           </div>
           <div class="col-sm-6">
@@ -29,21 +29,25 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Cadastrar</h3>
+                <h3 class="card-title">Cadastrar Cliente</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" id="frm-cad-menu">
+              <form role="form" id="frm-cad-cliente">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="menu">Nome</label>
-                    <input type="text" class="form-control" name="menu" id="menu" placeholder="Digite aqui o nome do menu">
+                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite aqui o nome do Cliente">
+                  </div>
+                  <div class="form-group">
+                    <label for="menu">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Digite aqui o e-mail do Cliente">
                   </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="button" class="btn btn-primary btn-cad" data-id="menu">Salvar</button>
+                  <button type="button" class="btn btn-primary btn-cad" data-id="cliente">Cadastrar</button>
                 </div>
               </form>
             </div>
@@ -93,11 +97,13 @@
               <table class="table table-bordered table-striped listagem" id="example1">
                 <thead>
                 <tr>
-                  <th>Nome do menu</th>
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Status</th>
                   <th>Ações</th>
                 </tr>
                 </thead>
-                <tbody class="list" id="list-menu" data-id="menu">
+                <tbody class="list" id="list-cliente" data-id="cliente">
                 
                 </tbody>
                 <tfoot>
