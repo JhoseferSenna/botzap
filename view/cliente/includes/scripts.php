@@ -35,14 +35,27 @@
 
         });
 
-        // $(document).on('show', '.list', function(){
+        $(document).on('change', "input[name='acao-resposta']", function(){
 
-        //     alert('apareceu carai');
-        //     listar($(this).data('id'));
+            exibirAcao($(this).val());
 
-        // });
+        });
 
     });
+
+    function exibirAcao(acao)
+    {
+        if(acao == 'resposta')
+        {
+            $("#display-resposta").show();
+            $("#display-menu").hide();
+        }
+        else if(acao == 'menu-destino')
+        {
+            $("#display-resposta").hide();
+            $("#display-menu").show();
+        }
+    }
 
     function listar(id)
     {
@@ -68,7 +81,35 @@
                         lista += 'Botões de ação';
                         lista += '</td>';
 
-                        break;
+                    break;
+
+                    case 'resposta':
+
+                        lista += '<td>';
+                        lista += item.nome;
+                        lista += '</td>';
+                        lista += '<td>';
+                        lista += 'Botões de ação';
+                        lista += '</td>';
+
+                    break;
+
+                    case 'opcao':
+
+                        lista += '<td>';
+                        lista += item.menu;
+                        lista += '</td>';
+                        lista += '<td>';
+                        lista += item.nome;
+                        lista += '</td>';
+                        lista += '<td>';
+                        lista += 'resposta a ser tratada';
+                        lista += '</td>';
+                        lista += '<td>';
+                        lista += 'Botões de ação';
+                        lista += '</td>';
+
+                    break;
                 }
 
                 lista += '</tr>';
@@ -118,4 +159,5 @@
     {
         $('.listagem').DataTable();
     }
+    
 </script>
