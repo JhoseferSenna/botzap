@@ -52,7 +52,7 @@
 
         
 
-        $.post('../../controller/Cliente.php', { action: a }, function(retorno){
+        $.post('../../../controller/Admin.php', { action: a }, function(retorno){
 
             $.each(retorno, function(indice, item)
             {
@@ -93,7 +93,7 @@
 
         dados.push(a);
 
-        $.post('../../controller/Cliente.php', dados, function(retorno){
+        $.post('../../../controller/Admin.php', dados, function(retorno){
 
             listar(id);
             $('#frm-cad-'+id).each (function(){

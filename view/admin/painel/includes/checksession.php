@@ -2,13 +2,13 @@
 
     session_start();
 
-    if(empty($_SESSION['admin']))
+    if(empty($_SESSION['id']))
     {
         header("Location: ../index.html");
     }
     else
     {
-        require ('../../model/Admin.php');
+        require ('../../../model/Admin.php');
         $a = new Admin();
     
         $a->setLogin($_SESSION['login']);

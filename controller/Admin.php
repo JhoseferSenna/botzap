@@ -11,7 +11,7 @@
         {
             case 'login':
 
-                $a = new Admin;
+                $a = new Admin();
 
                 $a->setLogin($_POST['login']);
                 $a->setSenha($_POST['senha']);
@@ -70,7 +70,7 @@
                         $r = array("resposta" => "1");
 
                         session_start();
-                        $_SESSION['admin'] = $a->getId();
+                        $_SESSION['id'] = $a->getId();
                         $_SESSION['login'] = $a->getLogin();
                         $_SESSION['senha'] = $_POST['senha'];
                     }

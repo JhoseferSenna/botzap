@@ -19,7 +19,7 @@
         <div class="info">
           <a href="#" class="d-block">
             <?php
-              echo $_SESSION['cliente']->getNome();
+              echo $_SESSION['admin']->getNome();
             ?>
           </a>
         </div>
