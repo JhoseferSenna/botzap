@@ -68,7 +68,18 @@
                         lista += 'Botões de ação';
                         lista += '</td>';
 
-                        break;
+                    break;
+
+                    case 'resposta':
+
+                        lista += '<td>';
+                        lista += item.nome;
+                        lista += '</td>';
+                        lista += '<td>';
+                        lista += 'Botões de ação';
+                        lista += '</td>';
+
+                    break;
                 }
 
                 lista += '</tr>';
@@ -118,4 +129,5 @@
     {
         $('.listagem').DataTable();
     }
+    
 </script>
