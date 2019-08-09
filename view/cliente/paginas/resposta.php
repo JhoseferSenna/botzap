@@ -97,7 +97,7 @@
                   <th>Ações</th>
                 </tr>
                 </thead>
-                <tbody class="list" id="list-menu" data-id="menu">
+                <tbody class="list" id="list-resposta" data-id="resposta">
                 
                 </tbody>
                 <tfoot>
