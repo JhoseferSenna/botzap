@@ -32,34 +32,47 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-cog"></i>
               <p>
                 Configurações
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link btn-menu" data-pagina="menu">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Menus</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a class="nav-link btn-menu" data-pagina="opcao">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Opções</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a class="nav-link btn-menu" data-pagina="resposta">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Respostas</p>
                 </a>
               </li>
             </ul>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="fas fa-address-book nav-icon"></i>
+                  <p>Contatos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="fas fa-envelope-square nav-icon"></i>
+                  <p>Mensagens</p>
+                </a>
+              </li>
           </li>
         </ul>
+        
       </nav>
       <!-- /.sidebar-menu -->
     </div>

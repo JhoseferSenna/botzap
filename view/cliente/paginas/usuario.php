@@ -5,13 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Menus</h1>
+            <h1>Usuários</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Início</a></li>
-              <li class="breadcrumb-item">Configurações</li>
-              <li class="breadcrumb-item active">Menus</li>
+              <li class="breadcrumb-item">Usuários</li>
             </ol>
           </div>
           <div class="col-sm-6">
@@ -29,21 +28,29 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Cadastrar Menu</h3>
+                <h3 class="card-title">Cadastrar</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" id="frm-cad-menu">
+              <form role="form" id="frm-cad-usuario">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="menu">Nome</label>
-                    <input type="text" class="form-control" name="menu" id="menu" placeholder="Digite aqui o nome do menu">
+                    <label for="menu">Número Celular</label>
+                    <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Digite aqui o celular com ddd">
+                  </div>
+                  <div class="form-group">
+                    <label for="menu">Login</label>
+                    <input type="text" class="form-control" name="login" id="login" placeholder="Digite aqui o login">
+                  </div>
+                  <div class="form-group">
+                    <label for="menu">Senha</label>
+                    <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite aqui a senha">
                   </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="button" class="btn btn-primary btn-cad" data-id="menu">Salvar</button>
+                  <button type="button" class="btn btn-primary btn-cad" data-id="usuario">Salvar</button>
                 </div>
               </form>
             </div>
@@ -86,23 +93,23 @@
           <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Menus Cadastrados</h3>
+              <h3 class="card-title">Usuários Cadastrados</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
               <table class="table table-bordered table-striped listagem" id="example1">
                 <thead>
                 <tr>
-                  <th>Nome do menu</th>
+                  <th>Nome do usuário</th>
                   <th>Ações</th>
                 </tr>
                 </thead>
-                <tbody class="list" id="list-menu" data-id="menu">
+                <tbody class="list" id="list-usuario" data-id="usuario">
                 
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Nome do menu</th>
+                  <th>Nome do usuário</th>
                   <th>Ações</th>
                 </tr>
                 </tfoot>

@@ -3,6 +3,7 @@
   include('../model/Usuario.php');
   include('../model/Cliente.php');
   include('../model/Admin.php');
+  include('../model/Plano.php');
 
   // CREATE //
 
@@ -362,7 +363,145 @@
 
   // LISTA JSON //
 
-  $a = new Admin();
+  // $a = new Admin();
+
+  // echo $a->listaJson();
+
+  // PARA JSON  //
+
+  // $a = new Admin();
+
+  // $a->setId(1);
+  
+  // if($a->read()){
+  //   echo $a->paraJson();
+  // }else{
+  //   echo $a->read();
+  // }
+
+  // LOGIN //
+
+  // $a = new Admin;
+
+  // $a->setLogin('Jhosefer');
+  // $a->setSenha('123');
+
+  // if($a->login())
+  // {
+  //   $a->read();
+
+  //   echo 'Bem vindo, ' . $a->getNome();
+  // }else{
+  //   echo 'Erramos nessa porra';
+  // }
+
+  // LOGIN PAGINA PARA A DASHBOARD //
+
+  // $resposta = json_encode(array('resposta' => 0));
+
+  // if(!empty($_POST['action']))
+  // {
+  //   switch($_POST['action'])
+  //   {
+  //     case 'login':
+  //       $a = new Usuario;
+
+  //       $a->setLogin($_POST['login']);
+  //       $a->setSenha($_POST['senha']);
+
+  //       if($a->login())
+  //       {
+  //         $a->read();
+
+  //         $resposta = $a->paraJson();
+  //       }
+
+  // break;
+  //   }
+  // }
+
+  // echo $resposta;
+
+
+  //// Plano ////
+
+  // CREATE //
+
+  // $p = new Plano();
+
+  // $p->setId('1');
+  // $p->setNome('Plano1');
+  // $p->setValorMensal('15');
+  // $p->setQtdUsuarios('1');
+
+  // if($p->create() == 1)
+  // {
+  //   echo 'Cadastrado com sucesso';
+  // }else{
+  //   echo $p->create();
+  // }
+
+  // READ // 
+
+  // $p = new Plano();
+
+  // $p->setId(1);
+  
+  // if($p->read()){
+  //   echo $p->getNome();
+  //   echo $p->getValorMensal();
+  //   echo $p->getQtdUsuarios();
+  // }
+
+  // UPDATE //
+
+  // $p = new Plano();
+
+  // $p->setId(1);
+  
+  // if($p->read()){
+  //   $p->setNome('teste modificado');
+  //   $p->setValorMensal('teste modificado');
+  //   $p->setQtdUsuarios('teste modificado');
+  //   if($p->update()){
+  //     echo 'Nome Atualizado com sucesso';
+  //   }else {
+  //     echo $p->update();
+  //   }
+  // }else{
+  //   echo $p->read();
+  // }
+
+  // DELETE //
+
+  // $a = new Admin();
+
+  // $a->setId(3);
+
+  // if($a->delete()){
+  //   echo 'Administrador Deletada com Sucesso';
+  // }else{
+  //   echo $a->delete();
+  // }
+
+  // LISTA //
+
+  // $a = new Admin();
+
+  // $listagem = $a->lista();
+
+  // if(!empty($listagem))
+  // {
+  //   foreach($listagem as $item){
+  //     echo $item['id'] . ' - ' . $item['nome'] . '<br>';
+  //   }
+  // }else{
+  //   echo 'Erro ao listar';
+  // }
+
+  // LISTA JSON //
+
+  // $a = new Admin();
 
   // echo $a->listaJson();
 

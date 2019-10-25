@@ -56,14 +56,12 @@
           </div>
           <div class="col-md-6">
           <div class="info-box mb-3 bg-warning">
-              <span class="info-box-icon"><i class="fas fa-tag"></i></span>
+              <span class="info-box-icon"><i class="fas fa-registered"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Catálogo</span>
+                <span class="info-box-text"></span>
                 <span class="info-box-number">
-                  <?php
-                    echo 'Número';
-                  ?>
+                  Clientes
                   Registrados
                 </span>
               </div>
@@ -71,7 +69,7 @@
             </div>
             <!-- /.info-box -->
             <div class="info-box mb-3 bg-success">
-              <span class="info-box-icon"><i class="far fa-heart"></i></span>
+              <span class="info-box-icon"><i class="fas fa-toggle-on"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Controle</span>
@@ -108,7 +106,9 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Nome do menu</th>
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Status</th>
                   <th>Ações</th>
                 </tr>
                 </tfoot>
@@ -120,6 +120,70 @@
             </div>
           <!--/.col (right) -->
         </div>
+  <div class="modal fade" id="modal_cliente" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Cliente</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form class="user">
+                      <div class="form-group">
+                        <label for="id">Código</label>
+                        <input
+                          type="text"
+                          name="id"
+                          class="form-control form-control-user"
+                          id="edt_id"
+                          aria-describedby="emailHelp"
+                          placeholder=""
+                          readonly
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input
+                          type="text"
+                          name="nome"
+                          class="form-control form-control-user"
+                          id="edt_nome"
+                          aria-describedby="emailHelp"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="login">Login</label>
+                        <input
+                          type="text"
+                          name="login"
+                          class="form-control form-control-user"
+                          id="edt_login"
+                          aria-describedby=""
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="senha">Senha</label>
+                        <input
+                          type="password"
+                          name="senha"
+                          class="form-control form-control-user"
+                          id="edt_senha"
+                          placeholder="Senha"
+                        />
+                      </div>
+                    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary btn-salvar-cliente">Salvar mudanças</button>
+      </div>
+    </div>
+  </div>
+</div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>

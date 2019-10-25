@@ -24,20 +24,27 @@
     $(document).ready(function(){
 
         $(document).on('click', '.btn-menu', function(){
-
             carregaPagina($(this).data('pagina'));
-
         });
 
         $(document).on('click', '.btn-cad', function(){
-
             cadastraDado($(this).data('id'));
+        });
 
+        $(document).on("click", ".btn-editar-cliente", function() {
+            carregaCliente($(this).data("id"));
+        });
+
+        $(document).on("click", ".btn-salvar-cliente", function() {
+            atualizaCliente('cliente');
+        });
+
+        $(document).on("click", ".btn-excluir-cliente", function() {
+            excluiCliente($(this).data("id"));
         });
 
         // $(document).on('show', '.list', function(){
 
-        //     alert('apareceu carai');
         //     listar($(this).data('id'));
 
         // });
@@ -52,55 +59,62 @@
 
         
 
-        $.post('../../../controller/Admin.php', { action: a }, function(retorno){
+    $.post('../../../controller/Admin.php', { action: a }, function(retorno){
 
-            $.each(retorno, function(indice, item)
-            {
-                lista += '<tr>';
-                switch(id)
-                {
-                    case 'cliente':
+    $.each(retorno, function(indice, item)
+    {
+        lista += '<tr>';
+        switch(id)
+        {
+            case 'cliente':
 
-                        lista += '<td>';
-                        lista += item.nome;
-                        lista += '</td>';
-                        lista += '<td>';
-                        lista += item.email;
-                        lista += '</td>';
-                        lista += '<td>';
-                        if(item.status == 0) {
-                            lista += 'Aguardando Confirmação';
-                        }else if(item.status > 0){
-                            lista += 'Ativo';
-                        }else{
-                            lista += item.status;
-                        }
-                        lista += '</td>';
-                        lista += '<td>';
-                        lista += 'Botões de ação';
-                        lista += '</td>';
-
-                        break;
+                lista += '<td>';
+                lista += item.nome;
+                lista += '</td>';
+                lista += '<td>';
+                lista += item.email;
+                lista += '</td>';
+                lista += '<td>';
+                if(item.status == 0) {
+                    lista += 'Aguardando Confirmação';
+                }else if(item.status > 0){
+                    lista += 'Ativo';
+                }else{
+                    lista += item.status;
                 }
+                lista += '</td>';
+                lista += "<td>";
+            lista += '<div class="btn-group">';
+            lista +=
+              '<button type="button" class="btn btn-primary btn-editar-cliente" data-id="' +
+              item.id +
+              '" data-toggle="modal" data-target="#modal_cliente"><i class="fas fa-edit"></i></button> ';
+            lista +=
+              '<button type="button" class="btn btn-danger btn-excluir-cliente" data-id="' +
+              item.id +
+              '"><i class="fas fa-trash-alt"></i></button> ';
+            lista += "</div>";
+            lista += "</td>";
+                break;
+        }
 
-                lista += '</tr>';
+            lista += '</tr>';
 
-            });
+        });
 
-            
+        
 
-            $('#list-' + id).empty();
-            $('#list-' + id).append(lista);
+        $('#list-' + id).empty();
+        $('#list-' + id).append(lista);
 
-            carregaExtras();
+        carregaExtras();
 
-        }, 'json');
-    }
+    }, 'json');
+}
 
     function cadastraDado(id)
     {
         var dados = $('#frm-cad-'+id).serializeArray();
-        console.log(dados);
         var a = { name: "action", value: "cad-"+id };
 
         dados.push(a);
@@ -125,6 +139,59 @@
 
             });
         }
+
+    function carregaCliente(codigo)
+    {
+        var a = "CARREGA_CLIENTE";
+        
+
+        $.post("../../../controller/Admin.php",
+        { action: a , id : codigo}, function(retorno) {
+            $('#edt_id').val(retorno.id);
+            $('#edt_nome').val(retorno.nome);
+            $('#edt_login').val(retorno.email);
+            $('#edt_senha').val('**********');
+            $('#modal_cliente').modal('show');
+           
+        }, "json");
+        
+    }
+
+    function atualizaCliente(id)
+    {
+        $.post("../../../controller/Admin.php",
+        { action: "ATUALIZA_CLIENTE",
+        id: $('#edt_id').val(),
+        nome: $('#edt_nome').val(),
+        login: $('#edt_login').val(),
+        email: $('#edt_login').val(),
+        senha: $('#edt_senha').val() },
+        function(retorno) {
+        if (retorno.result == "ERRO") {
+            alert("Erro Ao Editar Usuário!");
+        } else {
+            alert("Usuário Editado!");
+            alert(id);
+            listar(id);
+            
+        }
+        }, "json");
+    }
+
+    function excluiCliente(codigo) {
+        $.post("../../../controller/Admin.php",
+        { id: codigo, action: "EXCLUI_CLIENTE" },
+        function(retorno) {
+        if (retorno.result == "ERRO") {
+        alert("Erro Ao Excluir Usuário!");
+      } else {
+        alert("Usuário Excluído!");
+        listar('cliente')
+      }
+    },
+    "json"
+  );
+}
 
     function carregaExtras()
     {

@@ -15,7 +15,7 @@
 
                 $a->setLogin($_POST['login']);
                 $a->setSenha($_POST['senha']);
-
+                // var_dump($a->login());            
                 if($a->login())
                 {   
                     $a->read();
@@ -107,6 +107,38 @@
                     $r = $c->lista();
                 }
 
+            break;
+
+            case 'EXCLUI_CLIENTE':
+                require('../model/Cliente.php');
+                session_start();
+                $c = new Cliente();
+                $c->setId($_POST['id']);
+                $c->delete();
+                $r = array('result' => $_POST['action']);
+            break;
+
+            case 'CARREGA_CLIENTE':
+                require('../model/Cliente.php');
+                // session_start();
+                $c = new Cliente();
+                $c->setId($_POST['id']);
+                $c->read();
+                $r = $c->paraJson();
+                
+            break;
+
+            case 'ATUALIZA_CLIENTE':
+                require('../model/Cliente.php');
+                session_start();
+                $c = new Cliente();
+                $c->setId($_POST['id']);
+                $c->setNome($_POST['nome']);
+                $c->setLogin($_POST['login']);
+                $c->setEmail($_POST['email']);
+                $c->setSenha($_POST['senha']);
+                $c->update();
+                $r = array('result' => $_POST['action']);
             break;
         }
     }
