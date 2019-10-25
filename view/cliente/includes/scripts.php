@@ -24,29 +24,28 @@
     $(document).ready(function(){
 
         $(document).on('click', '.btn-menu', function(){
-
             carregaPagina($(this).data('pagina'));
-
         });
 
         $(document).on('click', '.btn-cad', function(){
-
             cadastraDado($(this).data('id'));
-
         });
 
         $(document).on('change', "input[name='acao-resposta']", function(){
+        exibirAcao($(this).val());
+        });
 
-exibirAcao($(this).val());
+        $(document).on("click", ".btn-editar-menu", function() {
+            carregaMenu($(this).data("id"));
+        });
 
-});
+        $(document).on("click", ".btn-salvar-menu", function() {
+            atualizaMenu('menu');
+        });
 
-        // $(document).on('show', '.list', function(){
-
-        //     alert('apareceu carai');
-        //     listar($(this).data('id'));
-
-        // });
+        $(document).on("click", ".btn-excluir-menu", function() {
+            excluiMenu($(this).data("id"));
+        });
 
     });
 
@@ -70,8 +69,6 @@ exibirAcao($(this).val());
 
         var lista = '';
 
-        
-
         $.post('../../controller/Cliente.php', { action: a }, function(retorno){
 
             $.each(retorno, function(indice, item)
@@ -84,9 +81,18 @@ exibirAcao($(this).val());
                         lista += '<td>';
                         lista += item.nome;
                         lista += '</td>';
-                        lista += '<td>';
-                        lista += 'Botões de ação';
-                        lista += '</td>';
+                        lista += "<td>";
+                        lista += '<div class="btn-group">';
+                        lista +=
+                        '<button type="button" class="btn btn-primary btn-editar-menu" data-id="' +
+                        item.id +
+                        '" data-toggle="modal" data-target="#modal_menu"><i class="fas fa-edit"></i></button> ';
+                        lista +=
+                        '<button type="button" class="btn btn-danger btn-excluir-menu" data-id="' +
+                        item.id +
+                        '"><i class="fas fa-trash-alt"></i></button> ';
+                        lista += "</div>";
+                        lista += "</td>";
 
                     break;
 
@@ -95,9 +101,18 @@ exibirAcao($(this).val());
                         lista += '<td>';
                         lista += item.nome;
                         lista += '</td>';
-                        lista += '<td>';
-                        lista += 'Botões de ação';
-                        lista += '</td>';
+                        lista += "<td>";
+                        lista += '<div class="btn-group">';
+                        lista +=
+                        '<button type="button" class="btn btn-primary btn-editar-resposta" data-id="' +
+                        item.id +
+                        '" data-toggle="modal" data-target="#modal_resposta"><i class="fas fa-edit"></i></button> ';
+                        lista +=
+                        '<button type="button" class="btn btn-danger btn-excluir-resposta" data-id="' +
+                        item.id +
+                        '"><i class="fas fa-trash-alt"></i></button> ';
+                        lista += "</div>";
+                        lista += "</td>";
 
                     break;
                     
@@ -110,11 +125,21 @@ exibirAcao($(this).val());
                         lista += item.nome;
                         lista += '</td>';
                         lista += '<td>';
+
                         lista += item.resposta;
                         lista += '</td>';
-                        lista += '<td>';
-                        lista += 'Botões de ação';
-                        lista += '</td>';
+                        lista += "<td>";
+                        lista += '<div class="btn-group">';
+                        lista +=
+                        '<button type="button" class="btn btn-primary btn-editar-opcao" data-id="' +
+                        item.id +
+                        '" data-toggle="modal" data-target="#modal_opcao"><i class="fas fa-edit"></i></button> ';
+                        lista +=
+                        '<button type="button" class="btn btn-danger btn-excluir-opcao" data-id="' +
+                        item.id +
+                        '"><i class="fas fa-trash-alt"></i></button> ';
+                        lista += "</div>";
+                        lista += "</td>";
 
                     break;
 
@@ -133,8 +158,6 @@ exibirAcao($(this).val());
                 lista += '</tr>';
 
             });
-
-            
 
             $('#list-' + id).empty();
             $('#list-' + id).append(lista);
@@ -162,11 +185,57 @@ exibirAcao($(this).val());
         }, 'json');
     }
 
+    function carregaMenu(codigo)
+    {
+        var a = "carrega-menu";
+        
+
+        $.post("../../controller/Cliente.php",
+        { action: a , id : codigo}, function(retorno) {
+            $('#edt_id').val(retorno.id);
+            $('#edt_nome').val(retorno.nome);
+            // $('#modal_cliente').modal('show');
+           
+        }, "json");
+        
+    }
+
+    function atualizaMenu(id)
+    {
+        $.post("../../controller/Cliente.php",
+        { action: "edt-menu",
+        id: $('#edt_id').val(),
+        nome: $('#edt_nome').val() },
+        function(retorno) {
+        if (retorno.result == "ERRO") {
+            alert("Erro Ao Editar Usuário!");
+        } else {
+            alert("Usuário Editado!");
+            listar(id);
+            
+        }
+        }, "json");
+    }
+
+    function excluiMenu(codigo) {
+        $.post("../../controller/Cliente.php",
+        { id: codigo, action: "exclui-menu" },
+        function(retorno) {
+        if (retorno.result == "ERRO") {
+        alert("Erro Ao Excluir Usuário!");
+      } else {
+        alert("Usuário Excluído!");
+        listar('menu')
+      }
+    },
+    "json"
+  );
+}
+
     function carregaPagina(pagina)
         {
             $("#conteudo-pagina").load("paginas/"+pagina+".php", function()
             {
-                //carregaExtras();
                 
                 listar($('.list').data('id'));
 

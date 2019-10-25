@@ -156,6 +156,20 @@
                 return $e->getMessage();
             }
         }
+
+        public function listaJson() {
+            return json_encode($this->list());
+          }
+      
+          public function paraJson(){
+            $dados = array(
+            'id' => $this->id,
+            'idcliente' => $this->idCliente,
+            'nome' => $this->nome,
+            );
+            return $dados;
+          }
+
     }
 
 ?>

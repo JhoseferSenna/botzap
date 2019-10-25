@@ -114,6 +114,50 @@
             </div>
           <!--/.col (right) -->
         </div>
+
+        <div class="modal fade" id="modal_resposta" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Resposta</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form class="user">
+                      <div class="form-group">
+                        <label for="id">Código</label>
+                        <input
+                          type="text"
+                          name="id"
+                          class="form-control form-control-user"
+                          id="edt_id"
+                          aria-describedby="emailHelp"
+                          placeholder=""
+                          readonly
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input
+                          type="text"
+                          name="nome"
+                          class="form-control form-control-user"
+                          id="edt_nome"
+                          aria-describedby="emailHelp"
+                          placeholder=""
+                        />
+                      </div>
+                    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary btn-salvar-resposta">Salvar mudanças</button>
+      </div>
+    </div>
+  </div>
+</div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>

@@ -43,12 +43,6 @@
             excluiCliente($(this).data("id"));
         });
 
-        // $(document).on('show', '.list', function(){
-
-        //     listar($(this).data('id'));
-
-        // });
-
     });
 
     function listar(id)
@@ -151,7 +145,7 @@
             $('#edt_nome').val(retorno.nome);
             $('#edt_login').val(retorno.email);
             $('#edt_senha').val('**********');
-            $('#modal_cliente').modal('show');
+            // $('#modal_cliente').modal('show');
            
         }, "json");
         

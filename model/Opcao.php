@@ -161,7 +161,7 @@
 
                 require('Database.php');
 
-                $sql = 'DELETE opcao WHERE id = ?';
+                $sql = 'DELETE FROM opcao WHERE id = ?';
 
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(1, $this->id);
