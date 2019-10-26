@@ -35,21 +35,15 @@
               <!-- form start -->
               <form role="form" id="frm-cad-opcao">
                 <div class="card-body">
-
                     <div class="form-group">
                         <label for="menu">Menu</label>
-
                         <select class="form-control" name="idmenu" id="idmenu">
-                        <?php
-                            
+                        <?php                            
                             require('../../../model/Menu.php');
                             require('../../../model/Cliente.php');
-
                             session_start();
-
                             $m = new Menu();
                             $m->setIdCliente($_SESSION['cliente']->getId());
-
                             foreach($m->list() as $menu)
                             {
                                 echo '<option value="'.$menu['id'].'">';

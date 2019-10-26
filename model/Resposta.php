@@ -117,7 +117,7 @@
 
                 require('Database.php');
 
-                $sql = 'DELETE resposta WHERE id = ?';
+                $sql = 'DELETE FROM resposta WHERE id = ?';
 
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(1, $this->id);

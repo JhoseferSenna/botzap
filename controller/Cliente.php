@@ -154,6 +154,34 @@
 
             break;
 
+            case 'carrega-resposta':
+                require('../model/Resposta.php');
+                session_start();
+                $resposta = new Resposta();
+                $resposta->setId($_POST['id']);
+                $resposta->read();
+                $r = $resposta->paraJson();
+            break;
+
+            case 'edt-resposta':
+                require('../model/Resposta.php');
+                session_start();
+                $resposta = new Resposta();
+                $resposta->setId($_POST['id']);
+                $resposta->setNome($_POST['nome']);
+                $resposta->update();
+                $r = array('result' => $_POST['action']);
+            break;
+
+            case 'exclui-resposta':
+                require('../model/Resposta.php');
+                session_start();
+                $resposta = new Resposta();
+                $resposta->setId($_POST['id']);
+                $resposta->delete();
+                $r = array('result' => $_POST['action']);
+            break;
+
             case 'list-resposta':
 
                 require('../model/Resposta.php');
