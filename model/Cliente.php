@@ -1,5 +1,6 @@
 <?php
   class Cliente {
+    
 
     private $id;
     private $idVendedor;
@@ -285,7 +286,7 @@
       'senha' => $this->senha,
       'status' => $this->status,
       );
-      return json_encode($dados);
+      return $dados;
     }
 
     public function paraArray()
@@ -334,6 +335,18 @@
           return "Erro: " . $e->getMessage();
       }
 
+    }
+
+    public function Contar() {
+      include('Database.php');
+      $sql = "SELECT COUNT(ID) FROM cliente";
+      $stmtContar = $conn->prepare($sql);
+
+      $stmtContar->execute();
+
+        $dados = $stmtContar->fetchAll(PDO::FETCH_ASSOC);
+
+        return $dados;
     }
 
   }

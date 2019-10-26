@@ -35,21 +35,15 @@
               <!-- form start -->
               <form role="form" id="frm-cad-opcao">
                 <div class="card-body">
-
                     <div class="form-group">
                         <label for="menu">Menu</label>
-
                         <select class="form-control" name="idmenu" id="idmenu">
-                        <?php
-                            
+                        <?php                            
                             require('../../../model/Menu.php');
                             require('../../../model/Cliente.php');
-
                             session_start();
-
                             $m = new Menu();
                             $m->setIdCliente($_SESSION['cliente']->getId());
-
                             foreach($m->list() as $menu)
                             {
                                 echo '<option value="'.$menu['id'].'">';
@@ -62,7 +56,7 @@
 
                   <div class="form-group">
                     <label for="menu">Nome</label>
-                    <input type="text" class="form-control" name="opcao" id="opcao" placeholder="Digite aqui o nome do menu">
+                    <input type="text" class="form-control" name="opcao" id="opcao" placeholder="Digite aqui o nome da opção">
                   </div>
 
                   <div class="form-group">
@@ -175,8 +169,8 @@
               <table class="table table-bordered table-striped listagem" id="example1">
                 <thead>
                 <tr>
-                  <th>Nome do menu</th>
-                  <th>Nome</th>
+                  <th>Nome do Menu</th>
+                  <th>Nome da Opção</th>
                   <th>Nome da Resposta</th>
                   <th>Ações</th>
                 </tr>
@@ -186,8 +180,8 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Nome do menu</th>
-                  <th>Nome</th>
+                  <th>Nome do Menu</th>
+                  <th>Nome da Opção</th>
                   <th>Nome da Resposta</th>
                   <th>Ações</th>
                 </tr>

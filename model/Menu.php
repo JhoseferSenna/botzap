@@ -132,17 +132,12 @@
 
                 require('Database.php');
 
-                $sql = 'DELETE menu WHERE id = ?';
+                $sql = 'DELETE FROM menu WHERE id = ?';
 
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(1, $this->id);
 
                 $stmt->execute();
-
-                foreach($this->itens as $item)
-                {
-                    $item->delete();
-                }
 
                 return 1;
             }
@@ -225,6 +220,20 @@
                 return $e->getMessage();
             }
         }
+
+        public function listaJson() {
+            return json_encode($this->list());
+          }
+      
+          public function paraJson(){
+            $dados = array(
+            'id' => $this->id,
+            'idcliente' => $this->idCliente,
+            'nome' => $this->nome,
+            );
+            return $dados;
+          }
+
     }
 
 ?>

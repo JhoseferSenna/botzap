@@ -161,7 +161,7 @@
 
                 require('Database.php');
 
-                $sql = 'DELETE opcao WHERE id = ?';
+                $sql = 'DELETE FROM opcao WHERE id = ?';
 
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(1, $this->id);
@@ -184,7 +184,7 @@
             {
                 require('Database.php');
 
-                $sql = 'SELECT opcao.nome, (menu.nome) menu, idresposta FROM opcao, menu WHERE opcao.idcliente = ? AND opcao.idmenu = menu.id';
+                $sql = 'SELECT opcao.nome, (menu.nome) menu, (resposta.nome) resposta,  idresposta FROM opcao, menu, resposta WHERE opcao.idcliente = ? AND opcao.idmenu = menu.id';
 
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(1, $this->idCliente);

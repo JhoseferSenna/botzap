@@ -117,7 +117,7 @@
 
                 require('Database.php');
 
-                $sql = 'DELETE resposta WHERE id = ?';
+                $sql = 'DELETE FROM resposta WHERE id = ?';
 
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(1, $this->id);
@@ -156,6 +156,20 @@
                 return $e->getMessage();
             }
         }
+
+        public function listaJson() {
+            return json_encode($this->list());
+          }
+      
+          public function paraJson(){
+            $dados = array(
+            'id' => $this->id,
+            'idcliente' => $this->idCliente,
+            'nome' => $this->nome,
+            );
+            return $dados;
+          }
+
     }
 
 ?>

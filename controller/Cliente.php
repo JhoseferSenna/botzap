@@ -31,6 +31,7 @@
 
             break;
 
+
             case 'primeiro-login':
 
                 $c = new Cliente();
@@ -93,6 +94,34 @@
 
             break;
 
+            case 'carrega-menu':
+                require('../model/Menu.php');
+                session_start();
+                $m = new Menu();
+                $m->setId($_POST['id']);
+                $m->read();
+                $r = $m->paraJson();
+            break;
+
+            case 'edt-menu':
+                require('../model/Menu.php');
+                session_start();
+                $m = new Menu();
+                $m->setId($_POST['id']);
+                $m->setNome($_POST['nome']);
+                $m->update();
+                $r = array('result' => $_POST['action']);
+            break;
+
+            case 'exclui-menu':
+                require('../model/Menu.php');
+                session_start();
+                $m = new Menu();
+                $m->setId($_POST['id']);
+                $m->delete();
+                $r = array('result' => $_POST['action']);
+            break;
+
             case 'list-menu':
 
                 require('../model/Menu.php');
@@ -123,6 +152,34 @@
                     $r = array("resposta" => "1");
                 }
 
+            break;
+
+            case 'carrega-resposta':
+                require('../model/Resposta.php');
+                session_start();
+                $resposta = new Resposta();
+                $resposta->setId($_POST['id']);
+                $resposta->read();
+                $r = $resposta->paraJson();
+            break;
+
+            case 'edt-resposta':
+                require('../model/Resposta.php');
+                session_start();
+                $resposta = new Resposta();
+                $resposta->setId($_POST['id']);
+                $resposta->setNome($_POST['nome']);
+                $resposta->update();
+                $r = array('result' => $_POST['action']);
+            break;
+
+            case 'exclui-resposta':
+                require('../model/Resposta.php');
+                session_start();
+                $resposta = new Resposta();
+                $resposta->setId($_POST['id']);
+                $resposta->delete();
+                $r = array('result' => $_POST['action']);
             break;
 
             case 'list-resposta':
@@ -218,7 +275,56 @@
         }
     }
 
+    // function checkOptionList()
+    // {
+    //     require('../model/Opcao.php');
+    //     session_start();
+    //     $opcao = new Opcao();
+
+    //     require('../model/Database.php');
+
+    //     $sql = "select * from opcao where idcliente = ?";
+    //     $stmt = $conn->prepare($sql);
+    //     $stmt->bindParam(1, $_SESSION['cliente']->getId());
+    //     $stmt->execute();
+    //     $opcoes = $stmt->fetchAll(POD::FETCH_ASSOC);
+
+    //     $respostaArray = [];
+
+    //     foreach($opcoes as $opcao)
+    //     {
+    //         if($opcao['idresposta'] == 0)
+    //         {
+    //             $sqlMenu = "select opcao.id, opcao.nome, menu.nome from opcao, menu where idcliente = ? and opcao.menuresposta = menu.id and opcao.id = ?";
+    //             $stmtMenu = $conn->prepare($sql);
+    //             $stmtMenu->bindParam(1, $_SESSION['cliente']->getId());
+    //             $stmtMenu->bindParam(2, $opcao['id']);
+    //             $stmtMenu->execute();
+    //             $resultMenu = $stmtMenu->fetch(POD::FETCH_ASSOC);
+
+    //             array_push($respostaArray, $resultMenu);
+    //         }
+    //         else {
+
+    //             $sqlresposta = "select opcao.id, opcao.nome, resposta.nome from opcao, resposta where idcliente = ? and opcao.idresposta = resposta.id and opcao.id = ?";
+    //             $stmtresposta = $conn->prepare($sql);
+    //             $stmtresposta->bindParam(1, $_SESSION['cliente']->getId());
+    //             $stmtresposta->bindParam(2, $opcao['id']);
+    //             $stmtresposta->execute();
+    //             $resultResposta = $stmtresposta->fetch(POD::FETCH_ASSOC);
+
+    //             array_push($respostaArray, $resultResposta);
+    //         }
+    //     }
+        
+
+        
+    // }
+
     echo json_encode($r);
+
+
+
 
 
 ?>
